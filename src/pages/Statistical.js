@@ -46,7 +46,7 @@ function Statistical() {
         while(topWishesTemp.length < lengthTop)
         {
           // var highest = await data.reduce((max, current) => (parseInt(current.interactive_dropheart) > parseInt(max.interactive_dropheart) && topWishesTemp.every(wish => wish.id !== current.id)) ? current : max)
-          var highest = await data.reduce((max , cur) => (Math.max(max.interactive_dropheart , cur.interactive_dropheart) === max.interactive_dropheart && topWishesTemp.every(wish => wish.id !== max.id) ) ? max : cur , -Infinity);
+          let highest = await data.reduce((max , cur) => (Math.max(max.interactive_dropheart , cur.interactive_dropheart) === cur.interactive_dropheart && topWishesTemp.every(wish => wish.id !== cur.id) ) ? cur : max );
           topWishesTemp.push(highest)
         }
         setTopWishes(topWishesTemp);

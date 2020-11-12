@@ -126,7 +126,7 @@ export default function Navbar({ children }) {
           <CloudCircleIcon style={{ marginRight : "0.1rem" }}></CloudCircleIcon>
           <a href="/" style={{ textDecoration : "none" , color : "white" }}>
             <Typography noWrap>
-              Kho chứa những điều ước
+              Nơi chứa những điều ước
             </Typography>
           </a>
           <Link to="/create" style={{ marginLeft : "auto" , textDecoration : "none" , color : "white" }}>

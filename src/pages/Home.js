@@ -43,7 +43,7 @@ function Home({history}) {
 
       const settingData = await fetchSettingData();
       if(settingData){
-        (settingData.amount_w_in_page >=3 && settingData.amount_w_in_page <= 9) && (setAmountW(settingData.amount_w_in_page));    
+        (settingData.amount_w_in_page >=3 && settingData.amount_w_in_page <= 10) && (setAmountW(settingData.amount_w_in_page));    
       };
     }
     
