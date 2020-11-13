@@ -25,6 +25,7 @@ function Statistical() {
   const [allowDownload , setAllowDownload] = useState(true);
 
   useEffect(() =>{ 
+    let isMounted = true;
     const fetchData = async () =>{
       let numTopWishes = 10;
       const settingData = await fetchSettingData();
@@ -39,7 +40,7 @@ function Statistical() {
       if(data.length > 0)
       {
         await calculateSexAuthors(data);
-        setAmountWishes(data.length);
+        isMounted && setAmountWishes(data.length);
   
         var topWishesTemp = [];
         const lengthTop = data.length < numTopWishes ? data.length : numTopWishes;
@@ -49,16 +50,16 @@ function Statistical() {
           let highest = await data.reduce((max , cur) => (Math.max(max.interactive_dropheart , cur.interactive_dropheart) === cur.interactive_dropheart && topWishesTemp.every(wish => wish.id !== cur.id) ) ? cur : max );
           topWishesTemp.push(highest)
         }
-        setTopWishes(topWishesTemp);
+        isMounted && setTopWishes(topWishesTemp);
 
 
         const feedbackData = await fetchFeedbackData();
         if(feedbackData.length > 0){
           var amountRating = await feedbackData.reduce((amount , cur) => amount += cur.num_star , 0);
-          setAverageRating((amountRating / feedbackData.length).toFixed(1));
-          setFeedback(feedbackData);
+          isMounted && setAverageRating((amountRating / feedbackData.length).toFixed(1));
+          isMounted && setFeedback(feedbackData);
 
-          await calculateStarRating(feedbackData);
+          isMounted && await calculateStarRating(feedbackData);
         }
       }
     }
@@ -66,6 +67,7 @@ function Statistical() {
     fetchData();
 
     return () =>{
+      isMounted = false;
       console.log("huy");
     }
   },[])

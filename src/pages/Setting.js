@@ -22,10 +22,10 @@ function Setting() {
 
   useEffect(() => {
     const fetchData = async () =>{
+      let isMounted = true;
       const data = await fetchSettingData();
 
-      
-      data && setSetting({
+      (data && isMounted) && setSetting({
         amount_w_in_page : data.amount_w_in_page,
         top_wishes : data.top_wishes,
         allow_download : data.allow_download,
@@ -35,6 +35,9 @@ function Setting() {
     
     fetchData();
 
+    return () =>{
+      isMounted = false;
+    }
   },[])
 
   const onHandleChangeAllowDownload = (e) =>{
