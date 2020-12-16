@@ -113,7 +113,7 @@ function MediaCard({wish , iState , setCookieForInteractive}) {
   const unlikeVariant = interactiveState === Enum.STATE_INTERACTIVE.UNLIKE ? "contained" : "outlined";
 
   return (
-    <Card className={classes.root + "wish_" + wish.id} style={{ margin : "auto" , marginTop : "0.8rem" }}>
+    <Card className={classes.root} style={{ margin : "auto" , marginTop : "0.8rem" }} id={"wish_" + wish.id}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
