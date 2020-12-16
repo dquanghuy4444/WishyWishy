@@ -81,8 +81,9 @@ function Thank() {
           Gửi phản hồi
         </Button>
       </Grid>
-      <Grid item xs={12} sm={4}>
-        <img src={ process.env.PUBLIC_URL + "/81e0536435229f93-.gif" } width={"100%"} alt="Hihi"></img>
+      <Grid item xs={12} sm={6}>
+        {/* <img src={ process.env.PUBLIC_URL + "/81e0536435229f93-.gif" } width={"100%"} alt="Hihi"></img> */}
+        <img src={ process.env.PUBLIC_URL + "/5ae.jpg" } width={"100%"} alt="Hihi" className="text-center"></img>
       </Grid>
     </Grid>
   );
