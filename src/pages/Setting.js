@@ -21,8 +21,9 @@ function Setting() {
   });
 
   useEffect(() => {
+    let isMounted = true;
+    
     const fetchData = async () =>{
-      let isMounted = true;
       const data = await fetchSettingData();
 
       (data && isMounted) && setSetting({
